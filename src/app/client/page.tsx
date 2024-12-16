@@ -5,18 +5,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import { useTheme } from "@/context/theme";
 
 export default function Page() {
   //Below code will throw a error since we trying to invoke a server function inside a client component
   // const result = serverSideFunction();
 
+  const {
+    colors: { primary },
+  } = useTheme();
+
   const settings = {
     dots: true,
   };
-  
+
   return (
     <>
-      <h1>Client page</h1>
+      <h1 style={{ color: primary }}>Client page</h1>
       {/* <p>{result}</p> */}
       <div className="image-slider-container">
         <Slider {...settings}>
