@@ -1,11 +1,12 @@
 "use client";
 
 // import { serverSideFunction } from "@/lib/server-utils";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+// import Image from "next/image";
 import { useTheme } from "@/context/theme";
+import { clientSideFunction } from "@/lib/client-utils";
 
 export default function Page() {
   //Below code will throw a error since we trying to invoke a server function inside a client component
@@ -15,15 +16,17 @@ export default function Page() {
     colors: { primary },
   } = useTheme();
 
-  const settings = {
-    dots: true,
-  };
+  // const settings = {
+  //   dots: true,
+  // };
+
+  const result = clientSideFunction();
 
   return (
     <>
       <h1 style={{ color: primary }}>Client page</h1>
-      {/* <p>{result}</p> */}
-      <div className="image-slider-container">
+      <p>{result}</p>
+      {/* <div className="image-slider-container">
         <Slider {...settings}>
           {Array.from({ length: 4 }).map((_, key) => {
             return (
@@ -38,7 +41,7 @@ export default function Page() {
             );
           })}
         </Slider>
-      </div>
+      </div> */}
     </>
   );
 }
