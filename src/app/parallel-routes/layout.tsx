@@ -6,6 +6,7 @@ type Layout = {
   notifications: ReactNode;
   analytics: ReactNode;
   revenue: ReactNode;
+  login: ReactNode;
 };
 
 {
@@ -19,7 +20,18 @@ export default function Layout({
   notifications,
   analytics,
   revenue,
+  login,
 }: Layout) {
+  const isLoggedIn = Math.floor(Math.random() * 2) ? true : false;
+  if (!isLoggedIn)
+    return (
+      <main className="h-screen flex">
+        <Card className="min-h-96 aspect-square max-w-5xl mx-auto self-center">
+          {login}
+        </Card>
+      </main>
+    );
+
   return (
     <main>
       <div className="flex items-center flex-col gap-4 justify-center max-w-5xl w-full mx-auto">
@@ -33,3 +45,6 @@ export default function Layout({
     </main>
   );
 }
+
+
+
