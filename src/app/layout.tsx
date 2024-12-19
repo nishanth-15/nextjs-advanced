@@ -25,6 +25,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const random_number = Math.floor(Math.random() * 2);
+  // // error thrown in this file will be caught by the global-error.tsx file
+  // if (random_number) throw new Error("Error caught in global layout");
+
   return (
     <html lang="en">
       <body
