@@ -29,3 +29,11 @@ body {
 .image-slider-container .slick-next:before {
   color: black;
 }
+
+h1 {
+  @apply text-3xl font-semibold;
+}
+
+a {
+  @apply text-blue-500 hover:underline;
+}
